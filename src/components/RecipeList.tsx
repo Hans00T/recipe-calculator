@@ -1,30 +1,21 @@
 import RecipeCard from './RecipeCard'
+import type { Recipe } from '../types/recipe'
 
-type Recipe = {
-    id: number,
-    name: string,
-    cookedWeight: number,
-    caloriesPer100g: number,
-}
-
-type RecipeListProps = {
-    recipes: Recipe[]
-}
-
-function RecipeList({recipes}: RecipeListProps) {
+function RecipeList({ recipes }: { recipes: Recipe[] }) {
     // Render a neat grid of recipe cards using the recipes from the props given by app.
     //console.log(recipes)
 
     return (
         <section>
             <h2>Reseptit</h2>
+
             <div className="recipe-grid">
                 {recipes.map((recipe) => (
                     <RecipeCard 
                         key={recipe.id}
+                        id={recipe.id}
                         name={recipe.name}
-                        cookedWeight={recipe.cookedWeight}
-                        caloriesPer100g={recipe.caloriesPer100g}
+                        cookedWeightG={recipe.cookedWeightG}
                     />
                 ))}
             </div>

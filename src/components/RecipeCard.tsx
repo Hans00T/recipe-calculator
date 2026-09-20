@@ -1,23 +1,22 @@
 import { useState } from 'react'
+import { Link } from 'react-router-dom'
 
 type RecipeCardProps = {
+    id: number
     name: string
-    cookedWeight: number
-    caloriesPer100g: number
+    cookedWeightG?: number
 }
 
-function RecipeCard({ name, cookedWeight, caloriesPer100g }: RecipeCardProps) {
-    const [isSelected, setIsSelected] = useState(false)
-    
+function RecipeCard({ id, name, cookedWeightG }: RecipeCardProps) {
+
     return (
-        <article>
-            <h2>{name}</h2>
-            <p>{cookedWeight} g</p>
-            <p>{caloriesPer100g} kcal / 100 g</p>
+        <article className="recipe-card">
+            <h2>
+                <Link to={`/recipes/${id}`}>{name}</Link>
+            </h2>
+            <p>Valmista ruokaa arviolta: {cookedWeightG ?? '-'} g</p>
         
-            <button onClick={() => setIsSelected(!isSelected)}>
-                {isSelected ? 'Aloitetaan!' : 'Valmista tämä'}
-            </button>
+            <button>Valmista tämä</button>
         </article>
     )
 }
