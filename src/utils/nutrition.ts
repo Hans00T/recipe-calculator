@@ -39,7 +39,7 @@ export function calculateNutrition(recipe: Recipe): Nutrition {
 }
 
 // Calculates the calories and macros for a recipe per 100 grams of finished food
-export function calculateNutritionPer100g(nutrition: Nutrition, rawWeightG: number, cookedWeightG: number): Nutrition | null {
+export function calculateNutritionPer100g(nutrition: Nutrition, rawWeightG: number, cookedWeightG?: number): Nutrition | null {
     // use raw weight if no cooked weight is given
     const weightForCalculation = cookedWeightG ?? rawWeightG
 
