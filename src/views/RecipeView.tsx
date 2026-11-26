@@ -20,8 +20,11 @@ function RecipeView() {
     
     return (
         <main>
-            <h1>{recipe.name}</h1>
-            <p>Tällä reseptillä ruokaa syntyy noin: {recipe.cookedWeightG ?? '-'} g</p>
+            <div className="recipe-header">
+                <h1>{recipe.name}</h1>
+                <p>Tällä reseptillä ruokaa syntyy noin: {recipe.cookedWeightG ?? '-'} g</p>
+            </div>
+
             <div className="recipe-view-nutrition-facts">
                 <strong>Ravintoarvot per 100 g</strong>
                 <p>Energiaa: </p>
@@ -32,7 +35,7 @@ function RecipeView() {
                 <p>Proteiinia: </p>
             </div>
 
-            <section>
+            <div className="recipe-ingredients">
                 <h2>Ainesosat</h2>
 
                 <ul>
@@ -42,9 +45,9 @@ function RecipeView() {
                         </li>
                     ))}
                 </ul>
-            </section>
+            </div>
 
-            <section>
+            <div className="recipe-instructions">
                 <h2>Valmistusohjeet</h2>
                 <ol>
                     {recipe.steps.map((step) => (
@@ -53,7 +56,7 @@ function RecipeView() {
                         </li>
                     ))}
                 </ol>
-            </section>
+            </div>
         </main>
     )
 }

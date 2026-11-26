@@ -1,9 +1,9 @@
+
 import RecipeCard from './RecipeCard'
 import type { Recipe } from '../types/recipe'
 
 function RecipeList({ recipes }: { recipes: Recipe[] }) {
-    // Render a neat grid of recipe cards using the recipes from the props given by app.
-    //console.log(recipes)
+    // Render all the recipes in a neat grid
 
     return (
         <section>
@@ -11,17 +11,14 @@ function RecipeList({ recipes }: { recipes: Recipe[] }) {
 
             <div className="recipe-grid">
                 {recipes.map((recipe) => (
-                    <RecipeCard 
+                    <RecipeCard
                         key={recipe.id}
-                        id={recipe.id}
-                        name={recipe.name}
-                        cookedWeightG={recipe.cookedWeightG}
+                        recipe={recipe}
                     />
                 ))}
             </div>
         </section>
     )
-
 }
 
 export default RecipeList

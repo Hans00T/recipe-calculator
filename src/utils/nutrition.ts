@@ -10,13 +10,13 @@ export type Nutrition = {
 }
 
 // Calculates the total weight of all the ingredients used in the recipe. Gives us the weight before baking/frying/etc. 
-// Returns a numeral value
+// Returns a numeral value (the raw weight of the recipe)
 export function calculateRawWeight(recipe: Recipe): number {
     return recipe.ingredients.reduce((total, item) => total + item.weightG, 0)
 }
 
 // Calculates the total amount of calories and macros in this recipe
-// Returns a list of nutrition values
+// Returns a list of nutrition values (the nutrition for the entire recipe)
 export function calculateNutrition(recipe: Recipe): Nutrition {
     let calories = 0
     let fat = 0
@@ -41,7 +41,7 @@ export function calculateNutrition(recipe: Recipe): Nutrition {
 }
 
 // Calculates the calories and macros for a recipe per 100 grams of finished food
-// Returns null or a list of nutrition values
+// Returns null or a list of nutrition values (the nutrition for 100 g of food made with the recipe)
 export function calculateNutritionPer100g(nutrition: Nutrition, rawWeightG: number, cookedWeightG?: number): Nutrition | null {
     // use raw weight if no cooked weight is given
     const weightForCalculation = cookedWeightG ?? rawWeightG

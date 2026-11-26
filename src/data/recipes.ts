@@ -166,3 +166,13 @@ export const recipes: Recipe[] = [
     ],
   },
 ]
+
+export const ingredients: Ingredient[] = [
+    chicken,
+    cookingCream,
+    onion,
+    ham,
+    egg,
+    cheese,
+    flour,
+]

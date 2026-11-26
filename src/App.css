@@ -31,3 +31,8 @@
     margin-top: 16px;
   }
 }
+
+/* ------------ ELEMENTS IN RECIPEVIEW ------------ */
+.recipe-header {
+  align-items: left;
+}
